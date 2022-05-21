@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Rol(models.Model):
+class RolModel(models.Model):
     rol = models.CharField(max_length=50, null=False, blank=False, verbose_name="Rol")
 
     def __str__(self):
