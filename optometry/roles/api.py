@@ -26,7 +26,7 @@ def update_rol(request: HttpRequest, payload: RolIn = Body(...), id: int = Path(
     q_rol.save()
     return q_rol
 
-@router.delete('/')
+@router.delete('/{id}')
 def delete_rol(request: HttpRequest, id: int = Path(...)):
     q_rol = get_object_or_404(RolModel, id=id)
     q_rol.delete()
