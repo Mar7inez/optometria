@@ -10,7 +10,10 @@ export class PatientApi {
   async getPatients(): Promise<any> {
     try {
       const response = await this.api.axios.get("/patients/");
-      return response;
+      if (response.status !== 200) {
+        return { kind: "error" }
+      }
+      return response.data;
     }
     catch (err) {
       return { kind: "bad-data" };

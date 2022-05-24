@@ -1,22 +1,17 @@
-import React, { useEffect } from 'react'
-import api from './services/api'
+import React from 'react'
+import { Routes, Route } from "react-router-dom";
+import Home from './pages/Home'
+import Login from './pages/Login'
 
 const App: React.FC = () => {
-  const getPatients = async () => {
-    const response = await api.patients.getPatients();
-
-    console.log('response', response);
-  }
-
-  useEffect(() => {
-    getPatients();
-  }, [])
-
   return (
     <div>
-      sarasa
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="login" element={<Login />} />
+      </Routes>
     </div>
   )
 }
 
-export default App
+export default App;
